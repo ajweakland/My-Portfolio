@@ -16,7 +16,7 @@ export default function AboutMe() {
                     I love working full-stack, solving real-world problems, and learning new technologies.
                 </p>
                 <section className="mt-8 flex items-center gap-8 text-gray-400">
-                    <a href="/Alex%20Weakland%20Resume%202025.pdf" target="_blank">
+                    <a href="/Alex%20Weakland%20Resume%2025.pdf" target="_blank">
                         <button className="cursor-pointer inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background shadow-sm hover:text-white h-9 px-4 py-2 hover:scale-105 transition-all duration-300">
                             <span className="font-semibold">Resume</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-file-down ml-2 size-5">
