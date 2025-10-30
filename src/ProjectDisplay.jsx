@@ -5,6 +5,7 @@ export default function ProjectDisplay() {
 
     const [currentImageIndexIM, setCurrentImageIndexIM] = useState(0);
     const [currentImageIndexHW, setCurrentImageIndexHW] = useState(0);
+    const [currentImageIndexPort, setCurrentImageIndexPort] = useState(0);
 
     const imillerImages = [
         "assets/imillerExample.png",
@@ -20,12 +21,22 @@ export default function ProjectDisplay() {
         "assets/HWEx5.png"
     ];
 
+    const portfolioImages = [
+        "assets/Portfolio1.png",
+        "assets/Portfolio2.png",
+        "assets/Portfolio3.png"
+    ];
+
     // Function to change the image in the project slideshows.
     const changeImage = (index, project) => {
         if (project === 'imiller') {
             setCurrentImageIndexIM(index);
-        } else if (project === 'healingWays') {
+        }
+        if (project === 'healingWays') {
             setCurrentImageIndexHW(index);
+        }
+        else if (project === 'portfolio') {
+            setCurrentImageIndexPort(index);
         }
     };
 
@@ -117,6 +128,61 @@ export default function ProjectDisplay() {
                         <a href="https://github.com/ajweakland/iMiller" target="_blank" className="hover:text-white inline-block" rel="noopener noreferrer" title="GitHub">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-github size-5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
                         </a>
+                    </div>
+                </div>
+
+                <div className="bg-[#2C2C2C] rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-all duration-300">
+                    {/* Slideshow Image */}
+                    <div className="relative w-full">
+                        <img
+                            src={portfolioImages[currentImageIndexPort]}
+                            alt="My Portfolio"
+                            className="w-full h-96 object-cover"
+                        />
+                        <div className="absolute bottom-1 w-full flex justify-between space-x-4">
+                            <button
+                                className="text-black p-2"
+                                onClick={() => changeImage((currentImageIndexPort - 1 + portfolioImages.length) % portfolioImages.length, 'portfolio')}
+                            >
+                                &lt;
+                            </button>
+                            <button
+                                className="text-black p-2"
+                                onClick={() => changeImage((currentImageIndexPort + 1) % portfolioImages.length, 'portfolio')}
+                            >
+                                &gt;
+                            </button>
+                        </div>
+                    </div>
+                    <div className="p-4">
+                        <h3 className="font-semibold text-lg mb-2">My Portfolio</h3>
+
+                        <div className="flex flex-wrap gap-2 mt-2 mb-2">
+                            <span className="text-xs text-white bg-[#4A4A4A] px-3 py-1 rounded-full hover:scale-110 transition-all duration-300">React.js</span>
+                            <span className="text-xs text-white bg-[#4A4A4A] px-3 py-1 rounded-full hover:scale-110 transition-all duration-300">TailwindCSS</span>
+                            <span className="text-xs text-white bg-[#4A4A4A] px-3 py-1 rounded-full hover:scale-110 transition-all duration-300">Next.js</span>
+                            <span className="text-xs text-white bg-[#4A4A4A] px-3 py-1 rounded-full hover:scale-110 transition-all duration-300">Vite</span>
+                        </div>
+
+                        <p className="text-xs text-gray-300">
+                            This is the site you're on now! A clean and responsive portfolio I built to highlight some of the work I’ve done and what I’m into as a developer. It gives a quick look at my projects, the tools I use, and what I’ve been building lately.
+                        </p>
+                        <p className="text-xs text-gray-300 pt-3">
+                            Built using React.js, TailwindCSS, and Vite, the portfolio emphasizes performance and modern UI design. It features dynamic project cards, responsive layouts, smooth transitions, and a clean, accessible interface tailored for both desktop and mobile devices.
+                        </p>
+
+                        <p className="text-xs text-gray-300 pt-3">
+                            The slideshow component allows for visual previews of each project, while each card includes detailed descriptions and tech tags. The goal was to deliver not just static content but an interactive experience that reflects both my technical and design sensibilities.
+                        </p>
+
+                        <p className="text-xs text-gray-300 pt-3 pb-5">
+                            Deployed via GitHub and Netlify, the site supports continuous deployment with automatic rebuilds on commit. This ensures it always reflects my latest work, with a scalable structure for future updates and project additions.
+                        </p>
+
+                        <a href="https://github.com/ajweakland/iMiller" target="_blank" className="hover:text-white inline-block" rel="noopener noreferrer" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-github size-5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                        </a>
+
                     </div>
                 </div>
 
